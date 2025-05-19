@@ -1,7 +1,15 @@
 const getRecipes = async () => {
     const response = await fetch("https://dummyjson.com/recipes");
-    const data =await response.json()
+    const data = await response.json()
     return data.recipes
-    
+
+
 }
-export { getRecipes };
+const getRecipesById = async (id) => {
+    const response = await fetch("https://dummyjson.com/recipes/" + id);
+    const data = await response.json();
+    return data
+    console.log(data)
+
+}
+export { getRecipes, getRecipesById };

@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function Cart({ items }) {
     return (
@@ -10,13 +11,16 @@ export default function Cart({ items }) {
                     (item, index) => {
                         return (
                             <div key={index} className="bg-white p-4 shadow rounded">
-                                <Image
-                                    src={item.image || 'https://via.placeholder.com/300x200'}
-                                    alt={item.name}
-                                    width={300}
-                                    height={200}
-                                    className="w-full h-48 object-cover mb-2 rounded-3xl"
-                                />
+                                <Link href={`/recipes/${item.id}`}>
+                                    <Image
+                                        src={item.image || 'https://via.placeholder.com/300x200'}
+                                        alt={item.name}
+                                        width={300}
+                                        height={200}
+                                        className="w-full h-48 object-cover mb-2 rounded-3xl"
+                                    />
+                                </Link>
+
                                 <h3 className="text-lg font-semibold">{item.name}</h3>
                             </div>
                         )
